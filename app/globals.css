@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset in-page anchors so the sticky navbar doesn't cover headings. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-ink font-body text-fog antialiased;
+  }
+
+  /* Consistent gold focus ring for keyboard users across all elements. */
+  :focus-visible {
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
